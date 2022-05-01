@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="UTF-8">
-	<title>Selamat Hari Raya Idul Fitri 1442 H</title>
+	<title>Selamat Hari Raya Idul Fitri 1443 H</title>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 	<link rel="stylesheet" href="style.css">
 	<link rel="stylesheet" href="fonts/css/all.css">
@@ -33,9 +33,6 @@
 	</div>
 
 	<button id="play_audio" onclick="play()" style="display: none;">Play</button>
-	<!-- audio -->
-	<audio id="my_audio"  src="./mp3/main-voice.mp3" muted="true">
-	</audio>
 
 	<!-- Javascript -->
 	<script src='idulfitri.js'></script>
@@ -95,16 +92,17 @@ window.onload = function() {
     css.type = "text/css";
     css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #fff}";
     document.body.appendChild(css);
-	 document.getElementById("play_audio").click()
-	//   setTimeout(function() {
-    //     document.getElementById("play_audio").click()
-    // },10);
+    let person = confirm("Website Akan Melakukan pemutaran audio, Izinkan ?");
+    // console.log(person)
+    if(person == true) {
+      play();
+    }
 };
 
  function play() {
-        var audio = document.getElementById("my_audio");
-        audio.play();
-      }
+      var audio = new Audio('./mp3/main-voice.mp3')
+      audio.play();
+  }
 	</script>
 
 </body>
