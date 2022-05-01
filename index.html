@@ -7,6 +7,7 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 	<link rel="stylesheet" href="style.css">
 	<link rel="stylesheet" href="fonts/css/all.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 
 <body>
@@ -27,15 +28,42 @@
               <span class="wrap"></span>
             </a>
 		</div>
-		<div class="mosque">
-			<i class="fas fa-mosque"></i> <i class="fas fa-mosque"></i> <i class="fas fa-mosque"></i>
-		</div>
+    <!-- <div id="button_play" class="m-0">
+	    <button class="btn btn-success" id="play_audio" onclick="play()">Play</button>
+    </div> -->
 	</div>
 
-	<button id="play_audio" onclick="play()" style="display: none;">Play</button>
+  <audio id="myAudio">
+    <source src="./mp3/main-voice.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+  </audio>
+
+  <!-- modal -->
+  <div class="modal fade" id="modalConfirm" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Perhatian</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Website akan menjalankan audio, izinkan ?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" onclick="play()">Izinkan</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Tidak</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 	<!-- Javascript -->
 	<script src='idulfitri.js'></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 	<script>
 		var TxtType = function(el, toRotate, period) {
     this.toRotate = toRotate;
@@ -92,16 +120,18 @@ window.onload = function() {
     css.type = "text/css";
     css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #fff}";
     document.body.appendChild(css);
-    let person = confirm("Website Akan Melakukan pemutaran audio, Izinkan ?");
-    // console.log(person)
-    if(person == true) {
-      play();
-    }
+    // let person = confirm("Website Akan Melakukan pemutaran audio, Izinkan ?");
+    // // console.log(person)
+    // if(person == true) {
+    //   play();
+    // }
+    $("#modalConfirm").modal('show');
 };
 
  function play() {
-      var audio = new Audio('./mp3/main-voice.mp3')
+      var audio = document.getElementById('myAudio');
       audio.play();
+       $("#modalConfirm").modal('hide');
   }
 	</script>
 
