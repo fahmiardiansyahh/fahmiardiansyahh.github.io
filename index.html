@@ -3,35 +3,102 @@
 
 <head>
 	<meta charset="UTF-8">
-	<title>Selamat Hari Raya Idul Fitri 1443 H</title>
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=0.1">
+	<title>Selamat Hari Raya Idul Fitri 1444H</title>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 	<link rel="stylesheet" href="style.css">
-	<link rel="stylesheet" href="fonts/css/all.css">
+	<!-- <link rel="stylesheet" href="fonts/css/all.css"> -->
+  <link stylesheet="https://fonts.googleapis.com/css2?family=Berkshire+Swash">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <style>
+    body{
+      height: 1025px;
+      max-height: 100%;
+      overflow: hidden
+      ;
+    }
+    .banner
+    {
+        background:url('./image/6_generated.jpg') no-repeat center center fixed;
+        background-size: cover;
+        width: 100%;
+        overflow: hidden;
+        height: 100%;
+    }
+    .text-ucapan  {
+        font-family: 'Berkshire Swash', cursive !important;
+        color: #F6AE42;
+        font-size: 70px;
+        margin-top: -100px !important;
+    }
+    .font-arabic {
+        font-family: 'Berkshire Swash', cursive !important;
+        color: #F6AE42;
+        word-spacing: 5px;
+    }
+    .hr-style{
+      border-bottom: 5px solid #F6AE42;
+       width: 100%;
+       margin-top: 15px;
+    }
+
+    @media only screen and (max-width: 600px) {
+      .banner {
+         background-size: cover;    
+          background-repeat: no-repeat;
+          background-position: right center;
+          background-attachment: fixed;
+         overflow: hidden;
+             max-width: 100%;
+      }
+      .text-ucapan  {
+        font-family: 'Berkshire Swash', cursive !important;
+        color: #F6AE42;
+        font-size: 15px;
+        margin-top: 80px !important;
+    }
+    .font-arabic {
+        font-family: 'Berkshire Swash', cursive !important;
+        color: #F6AE42;
+         font-size: 10px;
+        word-spacing: 5px;
+    }
+    .hr-style{
+      border-bottom: 2px solid #F6AE42;
+       width: 100%;
+       margin-top: 15px;
+    }
+    }
+  </style>
 </head>
 
 <body>
-	<!-- Template HTML -->
-	<div class="frame">
-		<div class="circle"></div>
-		<div class="line left"></div>
-		<div class="line right"></div>
-		<div class="bracket left"></div>
-		<div class="bracket right"></div>
-		<div class="small top"><span class="first-letter">s</span>elamat</div>
-		<div class="big">Idul Fitri</div>
-		<div class="small bottom">Mohon Maaf Lahir & Bathin</div>
-		<div class="hide top"></div>
-		<div class="hide bottom"></div>
-		<div class="name-ucapan">
-			 <a class="typewrite" data-period="2000" data-type='[ "Fahmi dan Keluarga"]'>
+  <!-- <div class="container-fluid"> -->
+     <div class="banner  m-0 p-0">
+       <div class="row">
+      <div class="col-6"></div>
+        <div class="col-6">
+            <div class="lamp">
+              <img src="./image/lamp.png" class="animate img-fluid" alt=""> 
+            </div>
+        </div>
+  </div>
+  <div class="row">
+    <div class="col-6"></div>
+    <div class="col-6">
+           <h1 class="text-ucapan">SELAMAT HARI RAYA</h1>
+           <h2 class="font-arabic hr-style">Idul Fitri 1444H</h2>
+           <h3 class="font-arabic">  <a class="typewrite" data-period="2000" data-type='[ "Mohon Maaf Lahir & Bathin Fahmi dan Keluarga"]'>
               <span class="wrap"></span>
-            </a>
-		</div>
-    <!-- <div id="button_play" class="m-0">
-	    <button class="btn btn-success" id="play_audio" onclick="play()">Play</button>
-    </div> -->
-	</div>
+            </a></h3>
+    </div>
+  </div>
+     </div>
+<!-- </div> -->
+
+
+
 
   <audio id="myAudio">
     <source src="./mp3/main-voice.mp3" type="audio/mpeg">
@@ -52,12 +119,13 @@
         <p>Website akan menjalankan audio, izinkan ?</p>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-success" onclick="play()">Izinkan</button>
+        <button type="button" class="btn btn-primary" onclick="play()">Izinkan</button>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Tidak</button>
       </div>
     </div>
   </div>
-</div>
+</div>  
+
 
 	<!-- Javascript -->
 	<script src='idulfitri.js'></script>

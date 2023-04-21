@@ -1,22 +1,79 @@
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:800,300);
-@import url("https://fonts.googleapis.com/css?family=Yesteryear");
+@import url('https://fonts.googleapis.com/css2?family=Berkshire+Swash');
 
-@media screen and (max-width: 600px) {
-  body {
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
+
+.lamp{
+  /* position: relative; */
+  animation: animate 1.5s;
+}
+
+.animate{
+  animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  80% {
+    opacity: .6;
+  }
+}
+@keyframes animate {
+  from {
+    top: -200px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+.moon{
+  position: relative;
+  animation: moon 1.5s;
+}
+
+@keyframes moon {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
 
-body {
-  /* background-color: rgba(24, 138, 141, 1); */
-  background-image: url('./image/main-bg.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  overflow: hidden;
+
+
+.text {
+	background: linear-gradient(-45deg, #72481f, #72481f, #e89a3e, #e89a3e);
+	background-size: 300%;
+	text-transform: uppercase;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	animation: animated_text 10s ease-in-out infinite;
+	-moz-animation: animated_text 10s ease-in-out infinite;
+	-webkit-animation: animated_text 4s ease-in-out infinite;
+}
+.text-size{
+  font-size: 40px;
+}
+@keyframes animated_text {
+	0% { background-position: 0px 50%; }
+	50% { background-position: 100% 50%; }
+	100% { background-position: 0px 50%; }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.wish-color{
+  color: #dda66b;
 }
 
 .frame {
