@@ -521,8 +521,7 @@
         <div class="row gy-4">
 
           <div class="col-lg-12">
-            <form action="#" id="form-mail" method="post" class="php-email-form" data-aos="fade-up"
-              data-aos-delay="200">
+            <form id="form-mail" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
               <div class="row gy-4">
 
                 <div class="col-md-6">
@@ -543,7 +542,7 @@
 
                 <div class="col-md-12 text-center">
                   <div class="loading">Loading</div>
-                  <div class="error-message"></div>
+                  <div class="error-messages"></div>
                   <div class="sent-message">Pesan telah terkirim. Terima kasih!</div>
 
                   <button type="submit">Kirim Pesan</button>
@@ -596,46 +595,46 @@
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
   <script>
-    document.getElementById('form-mail').addEventListener('submit', async function (e) {
+    document.getElementById("form-mail").addEventListener("submit", async function (e) {
       e.preventDefault();
 
-      const form = e.target;
+      const form = this;
+      const loading = form.querySelector(".loading");
+      const errorMessage = form.querySelector(".error-messages");
+      const sentMessage = form.querySelector(".sent-message");
+
+      // Reset tampilan dulu
+      loading.style.display = "block";
+      errorMessage.style.display = "none";
+      sentMessage.style.display = "none";
+
       const data = {
         name: form.name.value,
         email: form.email.value,
         subject: form.subject.value,
         message: form.message.value
       };
-      // console.log(data)
-      const scriptURL = 'https://script.google.com/macros/s/AKfycbzp1rjUL7YckyUDCjnoiyi2_BwJ6oiji9ScQZahxj_JLmHKySe1X7DlksBhzvmcmy9hmg/exec';
-
-      form.querySelector('.loading').style.display = 'block';
-      form.querySelector('.error-message').style.display = 'none';
-      form.querySelector('.sent-message').style.display = 'none';
 
       try {
-        const res = await fetch(scriptURL, {
-          method: 'POST',
-          mode: 'cors',
+        await fetch("https://script.google.com/macros/s/AKfycbzp1rjUL7YckyUDCjnoiyi2_BwJ6oiji9ScQZahxj_JLmHKySe1X7DlksBhzvmcmy9hmg/exec", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
           body: JSON.stringify(data),
-          headers: { 'Content-Type': 'application/json' }
+          mode: "no-cors" // kirim tanpa blok CORS
         });
 
-        const result = await res.json();
-        if (result.status === 'success') {
-          form.querySelector('.sent-message').style.display = 'block';
-          form.reset();
-        } else {
-          throw new Error(result.message);
-        }
+        // Selesai
+        loading.style.display = "none";
+        sentMessage.style.display = "block";
+        form.reset();
       } catch (err) {
-        form.querySelector('.error-message').innerText = 'Gagal mengirim data.';
-        form.querySelector('.error-message').style.display = 'block';
-      } finally {
-        form.querySelector('.loading').style.display = 'none';
+        console.error(err);
+        loading.style.display = "none";
+        errorMessage.style.display = "block";
       }
     });
   </script>
+
 
 
 </body>
